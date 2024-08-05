@@ -3,6 +3,8 @@ const bizSdk = require('facebook-nodejs-business-sdk');
 const EventRequest = bizSdk.EventRequest;
 const UserData = bizSdk.UserData;
 const ServerEvent = bizSdk.ServerEvent;
+const Content = bizSdk.Content;
+const CustomData = bizSdk.CustomData;
 
 const access_token = 'EAAF3tV4P2OYBO03q1BnfOXlMzfZAbATQYRsoM2JGJjrZBqy98cN13cZCVQMoGjwqcJZBtoXTxyqHcVPwZB7lHOJjoRhbI0LT9m4cUq98Ne3NDwuIfE08waGNDGJb6ZAylFr0jTZCRujZAuWxHPOYZB82nTsZATs5HRKYNtUPJ0dxChPoLoCW30JFO9wu34xKfUjBx7Og';
 const pixel_id = '574051084450238';
@@ -15,18 +17,41 @@ const sendPageViewEvent = async (req: Request, res: Response) => {
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
   console.log(fbc, fbp, userIp, userAgent)
+
+  const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
+
+
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
-    .setFbc(fbc);
+    .setFbc(fbc)
+    .setEmails(['joe@gmail.com'])
+    .setPhones(['47984473369'])
+    .setFirstName('John')
+    .setLastName('Doe')
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
+
 
   const serverEvent = new ServerEvent()
     .setEventName('PageView')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -46,18 +71,38 @@ const sendViewContentEvent = async (req: Request, res: Response) => {
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
 
+   const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
+
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
-    .setFbc(fbc);
+    .setFbc(fbc)
+    .setEmails(['joe@gmail.com'])
+    .setPhones(['47984473369'])
+    .setFirstName('John')
+    .setLastName('Doe')
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('ViewContent')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -81,7 +126,17 @@ const sendClickEvent = async (req: Request, res: Response) => {
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
-    .setFbc(fbc);
+    .setFbc(fbc)
+    .setEmails(['joe@gmail.com'])
+    .setPhones(['47984473369'])
+    .setFirstName('John')
+    .setLastName('Doe')
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('AddToCart')  // Use 'TrackClick' or another relevant event name if needed
@@ -110,23 +165,40 @@ const sendLeadEvent = async (req: Request, res: Response) => {
   const name = req.body.name;
   const email = req.body.email;
   const phone = req.body.phone;
-  console.log(name,email, phone)
+
+
+  const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
+
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
-    .setEmails([email]) // Assuming `setEmail` method is implemented
+    .setEmails([email])
     .setPhones([phone])
     .setFirstName(name)
-    .setLastName(name) // Assuming `setPhone` method is implemented
+    .setLastName(name)
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('Lead')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -147,19 +219,38 @@ const sendContactEvent = async (req: Request, res: Response) => {
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
 
+  const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
 
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
+    .setEmails(['joe@gmail.com'])
+    .setPhones(['47984473369'])
+    .setFirstName('John')
+    .setLastName('Doe')
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('Contact')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -182,6 +273,15 @@ const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
   const email = req.body.email;
   const phone = req.body.phone;
 
+   const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
+
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
@@ -191,13 +291,20 @@ const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
     .setPhones([phone])
     .setFirstName(name)
     .setLastName(name)
+    .setGender('male')
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('InitiateCheckout')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -216,10 +323,11 @@ const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
-  const email = req.body.buyer.email;
-  const name = req.body.buyer.name;
-  const phone = req.body.buyer.checkout_phone;
-  const address = req.body.buyer.address;
+  const email = req.body.data.buyer.email;
+  const name = req.body.data.buyer.name;
+  const phone = req.body.data.buyer.checkout_phone;
+  const address = req.body.data.buyer.address;
+  const purchase = req.body.data.purchase
 
   const userData = new UserData()
     .setClientIpAddress(userIp)
@@ -232,15 +340,27 @@ const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
     .setLastName(name)
     .setCity(address.city)
     .setState(address.state)
-    .setCountry(address.country)
+    .setCountry(address.country_iso)
     .setZip(address.zipcode);
+
+  const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency(purchase.full_price.currency_value)
+    .setValue(purchase.full_price.value);
 
   const serverEvent = new ServerEvent()
     .setEventName('Purchase')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
+
+ 
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
@@ -265,8 +385,17 @@ const sendCartAbandonmentEvent = async (req: Request, res: Response) => {
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
-  const { buyer, checkout_country} = req.body
+  const { buyer, checkout_country} = req.body.data
    
+  const content = (new Content())
+    .setId('terceirocaminho')
+    .setQuantity(1)
+
+  const customData = (new CustomData())
+    .setContents([content])
+    .setCurrency("BRL")
+    .setValue("997");
+
   const userData = new UserData()
     .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
@@ -276,13 +405,19 @@ const sendCartAbandonmentEvent = async (req: Request, res: Response) => {
     .setPhones([buyer.phone])
     .setFirstName(buyer.name)
     .setLastName(buyer.name)
+    .setDateOfBirth('1990-01-01')
+    .setCity('São Paulo')
+    .setState('SP')
+    .setCountry('BR')
+    .setZip('01526-000');
 
   const serverEvent = new ServerEvent()
     .setEventName('CartAbandonment')
     .setEventTime(current_timestamp)
     .setUserData(userData)
     .setEventSourceUrl(req.body.url || 'http://example.com')
-    .setActionSource('website');
+    .setActionSource('website')
+    .setCustomData(customData);
 
   const eventsData = [serverEvent];
   const eventRequest = new EventRequest(access_token, pixel_id).setEvents(eventsData);
