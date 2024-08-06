@@ -12,11 +12,10 @@ const api = bizSdk.FacebookAdsApi.init(access_token);
 
 const sendPageViewEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
-  console.log(fbc, fbp, userIp, userAgent)
+  console.log(fbc, fbp, userAgent)
 
   const content = (new Content())
     .setId('terceirocaminho')
@@ -29,7 +28,6 @@ const sendPageViewEvent = async (req: Request, res: Response) => {
 
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -66,7 +64,6 @@ const sendPageViewEvent = async (req: Request, res: Response) => {
 
 const sendViewContentEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -81,7 +78,6 @@ const sendViewContentEvent = async (req: Request, res: Response) => {
     .setValue("997");
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -117,13 +113,11 @@ const sendViewContentEvent = async (req: Request, res: Response) => {
 
 const sendClickEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -158,7 +152,6 @@ const sendClickEvent = async (req: Request, res: Response) => {
 
 const sendLeadEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -177,7 +170,6 @@ const sendLeadEvent = async (req: Request, res: Response) => {
     .setValue("997");
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -214,7 +206,6 @@ const sendLeadEvent = async (req: Request, res: Response) => {
 
 const sendContactEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -229,7 +220,6 @@ const sendContactEvent = async (req: Request, res: Response) => {
     .setValue("997");
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -265,7 +255,6 @@ const sendContactEvent = async (req: Request, res: Response) => {
 
 const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -283,7 +272,6 @@ const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
     .setValue("997");
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)   
@@ -319,7 +307,6 @@ const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
 
 const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -330,7 +317,6 @@ const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
   const purchase = req.body.data.purchase
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
@@ -381,7 +367,6 @@ const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
 
 const sendCartAbandonmentEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -397,7 +382,6 @@ const sendCartAbandonmentEvent = async (req: Request, res: Response) => {
     .setValue("997");
 
   const userData = new UserData()
-    .setClientIpAddress(userIp)
     .setClientUserAgent(userAgent)
     .setFbp(fbp)
     .setFbc(fbc)
