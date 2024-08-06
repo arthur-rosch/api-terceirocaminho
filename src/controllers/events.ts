@@ -12,7 +12,7 @@ const api = bizSdk.FacebookAdsApi.init(access_token);
 
 const sendPageViewEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -66,7 +66,7 @@ const sendPageViewEvent = async (req: Request, res: Response) => {
 
 const sendViewContentEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -117,7 +117,7 @@ const sendViewContentEvent = async (req: Request, res: Response) => {
 
 const sendClickEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -158,7 +158,7 @@ const sendClickEvent = async (req: Request, res: Response) => {
 
 const sendLeadEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -214,7 +214,7 @@ const sendLeadEvent = async (req: Request, res: Response) => {
 
 const sendContactEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -265,7 +265,7 @@ const sendContactEvent = async (req: Request, res: Response) => {
 
 const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -319,7 +319,7 @@ const sendInitiateCheckoutEvent = async (req: Request, res: Response) => {
 
 const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;
@@ -381,7 +381,7 @@ const sendPurchaseCompletedEvent = async (req: Request, res: Response) => {
 
 const sendCartAbandonmentEvent = async (req: Request, res: Response) => {
   const current_timestamp = Math.floor(new Date().getTime() / 1000);
-  const userIp = req.headers['x-forwarded-for']
+  const userIp = "8.8.8.8";
   const userAgent = req.headers['user-agent'];
   const fbp = req.body.fbp;
   const fbc = req.body.fbc;

@@ -1,10 +1,9 @@
-import cors from 'cors';
 import express, { Application } from 'express';
 import { createServer } from 'http';
 import { routes } from './controllers/routes';
 
 const app: Application = express();
-app.use(cors());
+
 const port = 3000;
 const httpServer = createServer(app);
 
